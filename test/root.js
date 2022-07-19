@@ -13,9 +13,9 @@ before(function(done) {
 
   const html = path.resolve(__dirname, '..', 'index.html')
 
-  jsdom.env(html, [], {
+  jsdom.JSDOM.env(html, [], {
     src: babelResult.code,
-    virtualConsole: jsdom.createVirtualConsole().sendTo(console)
+    virtualConsole: jsdom.JSDOM.createVirtualConsole().sendTo(console)
   }, (err, window) => {
     if (err) {
       return done(err);
